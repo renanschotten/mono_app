@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mono/modules/home/home_page.dart';
 import 'package:mono/modules/onboarding/onboarding_page.dart';
 import 'package:mono/modules/splash/splash_screen.dart';
 
@@ -12,11 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mono Expanse & Income App',
+      title: 'Mono Expanses & Incomes App',
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
         '/onboarding': (context) => const OnboardingPage(),
+        '/home_page': (context) => HomePage(),
       },
     );
   }

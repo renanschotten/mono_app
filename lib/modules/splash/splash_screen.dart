@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mono/shared/gradients/app_gradients.dart';
-import 'package:mono/shared/text_styles/text_styles.dart';
+import 'package:mono/shared/widgets/labels/label.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,9 +19,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(
-        seconds: 2,
-      ),
+      duration: const Duration(seconds: 2),
     );
     _animation = CurvedAnimation(
       parent: _animationController,
@@ -54,10 +52,7 @@ class _SplashScreenState extends State<SplashScreen>
         child: Center(
           child: FadeTransition(
             opacity: _animation,
-            child: const Text(
-              'mono',
-              style: TextStyles.s50BoldInterWhite,
-            ),
+            child: Label.s50BoldWhite(text: 'mono'),
           ),
         ),
       ),

@@ -9,4 +9,11 @@ class AppGradients {
     ],
     transform: GradientRotation(-1.3),
   );
+  static const LinearGradient whiteGreenGradient = LinearGradient(
+    colors: [
+      AppColors.white,
+      AppColors.green3,
+    ],
+    stops: [0.4, 0.5],
+  );
 }

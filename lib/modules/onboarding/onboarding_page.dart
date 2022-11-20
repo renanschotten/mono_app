@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mono/shared/gradients/app_gradients.dart';
-import 'package:mono/shared/text_styles/text_styles.dart';
+import 'package:mono/shared/colors/app_colors.dart';
+import 'package:mono/shared/widgets/labels/label.dart';
+import 'package:mono/shared/widgets/pill_button/pull_button.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -10,55 +11,37 @@ class OnboardingPage extends StatelessWidget {
     return SafeArea(
       top: true,
       child: Scaffold(
-        body: ListView(
-          children: [
-            const SizedBox(
-              width: double.infinity,
-              child: Image(
-                image: AssetImage('./assets/images/onboarding_1.png'),
-              ),
-            ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            Column(
+        backgroundColor: AppColors.green3,
+        body: Center(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
               children: [
-                const Text(
-                  'Spend Smarter\nSave More',
-                  style: TextStyles.s36BoldInterGreen1,
-                  textAlign: TextAlign.center,
+                const SizedBox(height: 30.0),
+                const Expanded(
+                  flex: 2,
+                  child: Image(
+                    image: AssetImage('./assets/images/onboarding_2.png'),
+                  ),
                 ),
-                const SizedBox(
-                  height: 26.0,
+                const SizedBox(height: 30.0),
+                Label.s36BoldGreen1Center(
+                  text: 'Spend Smarter\nSave More',
                 ),
+                const SizedBox(height: 26.0),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 28.0),
-                  child: Container(
-                    height: 64,
-                    width: 358,
-                    /* constraints: const BoxConstraints(
-                      minHeight: 67,
-                      minWidth: 358,
-                    ), */
-                    decoration: const BoxDecoration(
-                      gradient: AppGradients.greenGradient,
-                      borderRadius: BorderRadius.horizontal(
-                        left: Radius.circular(40.0),
-                        right: Radius.circular(40.0),
-                      ),
-                    ),
-                    child: const Align(
-                      alignment: Alignment.center,
-                      child: Text('Get Started', textAlign: TextAlign.center),
+                  child: PillButton.greenGradient(
+                    label: 'Get Started',
+                    onTap: () => Navigator.of(context).pushReplacementNamed(
+                      '/home_page',
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 24.0,
-                )
+                const SizedBox(height: 24.0)
               ],
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );
