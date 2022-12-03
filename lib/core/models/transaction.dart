@@ -14,6 +14,15 @@ class TransactionModel {
     required this.type,
   });
 
+  factory TransactionModel.fromMap(Map<String, dynamic> map) {
+    return TransactionModel(
+      name: map['name'],
+      amount: map['amount'],
+      date: map['date'],
+      type: map['type'],
+    );
+  }
+
   String checkTransactionDate() {
     if (isToday) return 'Today';
     if (isYesterday) return 'Yesterday';
